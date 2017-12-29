@@ -1,3 +1,28 @@
+import logging
+
+logger = logging.getLogger('measurement')
+logger.setLevel(logging.INFO)
+
+h = logging.StreamHandler()
+h.setLevel(logging.INFO)
+fmt = logging.Formatter('%(asctime)s : %(name)s : %(levelname)s : %(message)s')
+h.setFormatter(fmt)
+logger.handlers = [h]
+logger.info('Logger set up!')
+
+
+from IPython import get_ipython
+ipython = get_ipython()
+
+
+import qcodes
+qc = qcodes
+
+
+import labpythonconfig as cfg
+
+
+# Namespace vars
 class NameSpace:
     pass
 

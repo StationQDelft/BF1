@@ -1,10 +1,10 @@
-from qctools import instruments as instools
+from stationq.qctools import instruments as instools
 
 from qcodes.instrument_drivers.QuTech.IVVI import IVVI
 ivvi = instools.create_inst(IVVI, "ivvi", "ASRL5::INSTR")
 
 from qcodes.instrument_drivers.stanford_research.SR865 import SR865
-sr1 = instools.create_inst(SR865, "sr1", "GPIB0::3::INSTR")
+# sr1 = instools.create_inst(SR865, "sr1", "GPIB0::3::INSTR")
 
 from qcodes.instrument_drivers.Keysight.Keysight_34465A import Keysight_34465A
 key = instools.create_inst(Keysight_34465A, "key1", "USB0::0x2A8D::0x0101::MY57503596::INSTR")
