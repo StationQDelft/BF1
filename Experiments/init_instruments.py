@@ -16,6 +16,9 @@ LO = instools.create_inst(RohdeSchwarz_SGS100A, 'LO', address="TCPIP0::169.254.2
 from qcodes.instrument_drivers.AlazarTech.ATS9360 import AlazarTech_ATS9360
 alazar = instools.create_inst(AlazarTech_ATS9360, 'alazar')
 
+from qcodes.instrument_drivers.tektronix.AWG5014 import Tektronix_AWG5014
+awg = instools.create_inst(Tektronix_AWG5014, 'awg', address="TCPIP0::169.254.183.196::inst0::INSTR")
+
 from qcodes.instrument_drivers.rigol.DG4000 import Rigol_DG4000
 fg = instools.create_inst(Rigol_DG4000, 'fg', address="TCPIP0::169.254.190.44::inst0::INSTR")
 

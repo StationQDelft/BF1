@@ -14,10 +14,8 @@ logger.info('Logger set up!')
 from IPython import get_ipython
 ipython = get_ipython()
 
-
 import qcodes
 qc = qcodes
-
 
 import labpythonconfig as cfg
 
@@ -28,6 +26,8 @@ class NameSpace:
 
 namespace = NameSpace()
 
+
+# Default Alazar settings
 namespace.ats_settings = dict(
     clock_source='INTERNAL_CLOCK',
     sample_rate=int(1e9),
@@ -52,3 +52,23 @@ namespace.ats_settings = dict(
     aux_io_mode='AUX_IN_AUXILIARY',
     aux_io_param='NONE'
 )
+
+# Default AWG settings, in a language that AWG files speak
+namespace.awg_settings = {
+    'sampling_rate' : int(1e9),
+    'clock_source' : 1,
+    'reference_source' : 2,
+    'external_reference_type' : 1,
+    'trigger_source' : 1,
+    'trigger_input_impedance' : 1,
+    'trigger_input_threshold' : 0.5,
+    'run_mode' : 4,
+    'run_state' : 0,
+}
+
+for i in range(1,5):
+    namespace.awg_settings[f'channel_{i}'] = {
+        'channel_state' : 2,
+        'analog_amplitude' : 2.0,
+        'analog_offset' : 0.0,
+    }
