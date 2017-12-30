@@ -11,6 +11,9 @@ from stationq.data.data_storage import Data, GridData
 from stationq.experiment.measurement import Parameter, BaseMeasurement, PysweepGrid
 from stationq.experiment.ATS import AlazarMeasurement
 
+import logging
+logger = logging.getLogger('measurement')
+
 
 class Reflectometry(AlazarMeasurement):
 
