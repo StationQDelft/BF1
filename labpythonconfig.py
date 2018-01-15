@@ -15,6 +15,8 @@ metadatafile_prefix = "%Y-%m-%d_{n}"
 # whether to append a counting index to the data files
 # (handy when storing multiple data sets in the same folder)
 data_location_idx = True
+# where to create automatic plots
+plot_location = "d:\\data\\%Y-%m\\%Y-%m-%d\\plots"
 
 # the working directory of our code
 labpython_dir = ""
