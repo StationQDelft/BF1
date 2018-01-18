@@ -16,26 +16,27 @@ logger = logging.getLogger('measurement')
 
 
 class AlazarMeasurementExt(AlazarMeasurement):
+    pass
 
-    def setup(self):
-        super().setup()
+    # def setup(self):
+    #     super().setup()
 
-        self.alazar_axes = OrderedDict({})
-        if not self.ats_integrate_samples():
-            self.alazar_axes['Times (s)'] = {
-                'value' : np.arange(self.samples_per_record)/self.station.alazar.sample_rate.get(),
-                'unit' : 's',
-            }
+    #     self.alazar_axes = OrderedDict({})
+    #     if not self.ats_integrate_samples():
+    #         self.alazar_axes['Times (s)'] = {
+    #             'value' : np.arange(self.samples_per_record)/self.station.alazar.sample_rate.get(),
+    #             'unit' : 's',
+    #         }
 
-        if not self.ats_average_records():
-            self.alazar_axes['Records'] = {
-                'value' : np.arange(self.ats_records_per_buffer.get())
-            }
+    #     if not self.ats_average_records():
+    #         self.alazar_axes['Records'] = {
+    #             'value' : np.arange(self.ats_records_per_buffer.get())
+    #         }
 
-        if not self.ats_average_buffers():
-            self.alazar_axes['Buffers'] = {
-                'value' : np.arange(self.ats_buffers_per_acquisition.get())
-            }
+    #     if not self.ats_average_buffers():
+    #         self.alazar_axes['Buffers'] = {
+    #             'value' : np.arange(self.ats_buffers_per_acquisition.get())
+    #         }
 
 # class Reflectometry(AlazarMeasurementExt):
 
@@ -186,13 +187,13 @@ class AWG2DRamp(AWGMeasurement):
             wf[f'ch{self.ramp_chan[0]}_wf'][-samples_down:] = dn
             wf[f'ch{self.ramp_chan[1]}_wf'][:] = v
 
-            wfs.append(dict(wf=wf, name=f'wf_{i}', nreps=self.line_reps))
+            wfs.append(dict(wf=wf, name=f'wf_{i}', nreps=self.line_reps, trigger_wait=1))
 
         # ramp outer value down as well
-        wf = np.zeros(samples_down, dtype=dt)
+        wf = np.zeros(samples_per_line, dtype=dt)
         dn = np.linspace(h.voltage_to_wfscale()[self.ramp_chan[1]-1] * self.ramp_max[1],
                          h.voltage_to_wfscale()[self.ramp_chan[1]-1] * self.ramp_min[1],
-                         samples_down)
+                         samples_per_line)
         wf[f'ch{self.ramp_chan[1]}_wf'][:] = dn
         wfs.append(dict(wf=wf, name=f'wf_{i+1}'))
 

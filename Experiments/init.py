@@ -55,6 +55,10 @@ namespace.ats_settings = dict(
     aux_io_param='NONE'
 )
 
+namespace.ats_acq_kwargs = dict(
+    buffer_timeout=int(1e4),
+)
+
 ### Default AWG settings, in a language that AWG files speak
 namespace.awg_settings = {
     'sampling_rate' : int(1e9),
