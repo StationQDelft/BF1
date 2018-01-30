@@ -90,8 +90,8 @@ def init_instruments():
     #from qcodes.instrument_drivers.stanford_research.SR865 import SR865
     #sr1 = instools.create_inst(SR865, "sr1", "GPIB0::3::INSTR")
     #
-    #from qcodes.instrument_drivers.Keysight.Keysight_34465A import Keysight_34465A
-    #key = instools.create_inst(Keysight_34465A, "key1", "USB0::0x2A8D::0x0101::MY57503596::INSTR")
+    from qcodes.instrument_drivers.Keysight.Keysight_34465A import Keysight_34465A
+    key = instools.create_inst(Keysight_34465A, "key1", "USB0::0x2A8D::0x0101::MY57503596::INSTR")
 
     from qcodes.instrument_drivers.rohde_schwarz.SGS100A import RohdeSchwarz_SGS100A
     RF = instools.create_inst(RohdeSchwarz_SGS100A, 'RF', address="TCPIP0::169.254.2.20")
@@ -110,7 +110,7 @@ def init_instruments():
         ivvi.parameters['dac{}'.format(i)].set_step(0.5)
         ivvi.parameters['dac{}'.format(i)].set_delay(0.001)
 
-    return qc.Station(ivvi, RF, LO, alazar, awg, fg)
+    return qc.Station(ivvi, RF, LO, alazar, awg, fg, key)
 
 
 ###  Setting some reasonable initial values
