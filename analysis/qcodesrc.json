@@ -1,0 +1,19 @@
+{
+    "core": {
+        "loglevel": "WARNING",
+        "file_loglevel": "INFO",
+        "default_fmt": "data/{date}/#{counter}_{name}_{time}",
+        "register_magic": true,
+        "db_location": "d:/OneDrive/BF1/Data/experiments.db",
+        "db_debug": false
+    },
+    "gui": {
+        "notebook": true,
+        "plotlib": "all",
+        "pyqtmaxplots": 100,
+        "defaultcolormap": "hot"
+    },
+    "user": {
+        "img_dir": "d:/data/images/%Y-%m/%Y-%m-%d/"
+    }
+}
