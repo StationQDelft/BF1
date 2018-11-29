@@ -4,7 +4,7 @@
         "file_loglevel": "INFO",
         "default_fmt": "data/{date}/#{counter}_{name}_{time}",
         "register_magic": true,
-        "db_location": "d:/OneDrive/BF1/Data/experiments.db",
+        "db_location": "d:/OneDrive/BF1/Data/experiments_20181011.db",
         "db_debug": false
     },
     "gui": {
@@ -14,6 +14,18 @@
         "defaultcolormap": "hot"
     },
     "user": {
+        "scriptfolder": ".",
+        "mainfolder": ".",
         "img_dir": "d:/data/images/%Y-%m/%Y-%m-%d/"
+    },
+    "station_configurator": {
+        "enable_forced_reconnect": false,
+        "default_folder": ".",
+        "default_file": "instrument_config.yml"
+    },
+    "GUID_components": {
+        "location": 13,
+        "work_station": 1,
+        "sample": 2863311530
     }
 }
